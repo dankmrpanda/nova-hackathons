@@ -1,0 +1,307 @@
+/* Monitoring Components Styles */
+
+/* Cost Monitor */
+.cost-monitor {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 2px solid #3a3a3a;
+}
+
+.cost-monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cost-monitor-header h4 {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.btn-refresh {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-refresh:hover {
+  transform: rotate(90deg);
+}
+
+.cost-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cost-current,
+.cost-limit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cost-label {
+  color: #b0b0b0;
+  font-size: 0.875rem;
+}
+
+.cost-value {
+  color: #e0e0e0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.cost-progress {
+  height: 1rem;
+  background: #1a1a1a;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.cost-progress-bar {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.cost-percentage {
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 0.875rem;
+}
+
+.cost-warning,
+.cost-critical {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.cost-warning {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid #ffc107;
+  color: #ffc107;
+}
+
+.cost-critical {
+  background: rgba(217, 83, 79, 0.1);
+  border: 1px solid #d9534f;
+  color: #d9534f;
+  animation: pulse-alert 1s infinite;
+}
+
+@keyframes pulse-alert {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.warning-icon,
+.critical-icon {
+  font-size: 1.5rem;
+}
+
+/* Session Progress */
+.session-progress {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 2px solid #3a3a3a;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.progress-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  font-size: 1.25rem;
+}
+
+.status-text {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.progress-duration {
+  color: #b0b0b0;
+  font-size: 0.875rem;
+}
+
+.progress-bar-container {
+  height: 1.5rem;
+  background: #1a1a1a;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: width 0.5s ease, background-color 0.3s ease;
+  border-radius: 0.75rem;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-percentage {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.progress-eta {
+  color: #b0b0b0;
+  font-size: 0.875rem;
+}
+
+/* Termination Countdown */
+.termination-countdown {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid;
+}
+
+.termination-countdown.active {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: #ffc107;
+  animation: pulse-warning 2s infinite;
+}
+
+.termination-countdown.terminated {
+  background: rgba(217, 83, 79, 0.1);
+  border-color: #d9534f;
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    border-color: #ffc107;
+  }
+  50% {
+    border-color: #e0a800;
+  }
+}
+
+.countdown-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.countdown-content {
+  flex: 1;
+}
+
+.countdown-content h4 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-reason {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.countdown-timer {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffc107;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 1rem;
+}
+
+.btn-cancel-termination {
+  padding: 0.75rem 1.5rem;
+  background: #6a9fb5;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-termination:hover {
+  background: #5a8fa5;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cost-display {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .progress-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .termination-countdown {
+    flex-direction: column;
+  }
+
+  .countdown-timer {
+    font-size: 1.5rem;
+  }
+}

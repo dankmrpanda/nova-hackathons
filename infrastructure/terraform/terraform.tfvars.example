@@ -1,0 +1,32 @@
+# AWS Configuration
+aws_region = "us-east-1"
+environment = "staging"
+
+# Project Configuration
+project_name = "codebase-onboarding"
+
+# Network Configuration
+vpc_cidr           = "10.0.0.0/16"
+availability_zones = ["us-east-1a", "us-east-1b"]
+
+# Database Configuration
+database_instance_class     = "db.t3.medium"
+database_allocated_storage  = 100
+db_master_password         = "CHANGE_ME_SECURE_PASSWORD"
+
+# Redis Configuration
+redis_node_type       = "cache.t3.medium"
+redis_num_cache_nodes = 2
+
+# ECS Configuration
+ecs_backend_cpu    = 1024
+ecs_backend_memory = 2048
+ecs_worker_cpu     = 2048
+ecs_worker_memory  = 4096
+
+backend_desired_count = 2
+worker_desired_count  = 2
+
+# Domain Configuration
+domain_name     = "staging.codebase-onboarding.example.com"
+certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
