@@ -34,7 +34,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
-
+.kiro
 # Turbo
 .turbo
 

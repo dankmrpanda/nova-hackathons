@@ -1,252 +1,246 @@
 # CodeMap - AI-Powered Codebase Onboarding
 
-An intelligent system that helps developers understand and onboard to new codebases through AI-powered analysis, interactive walkthroughs, and visual animations.
+An intelligent system that helps developers understand and onboard to new codebases through AI-powered analysis, interactive chat assistance, and comprehensive repository insights.
 
-**🚀 [Setup Guide](SETUP_GUIDE.md)**
+## ✨ Features
 
-## Features
+### 🔍 Public Repository Analysis
+- **Instant Analysis** - Analyze any public GitHub repository without authentication
+- **AI-Powered Insights** - Get comprehensive architecture detection, technology stack identification, and onboarding recommendations
+- **Interactive Chat** - Ask questions about the repository and get AI-powered answers
+- **Real-Time Stats** - View live repository statistics (stars, forks, open issues, file count)
 
-- � **GitHub Integration** - Connect your GitHub account or analyze any public repository
-- 🤖 **AI-Powered Analysis** - Deep code analysis using Claude, GPT-4, Llama, and more via OpenRouter
-- �️ **Architecture Insights** - Understand system design, patterns, and component relationships
-- � **Feature Mapping** - Discover where features live and how they work
-- � **Data Flow Tracing** - Visualize how data moves through the system
-- � **Animated Walkthroughs** - Generate visual animations using Modal (optional)
-- � **Interactive Onboarding** - Step-by-step guides tailored to the codebase
-- ⚠️ **Confusion Detection** - Identifies and explains potentially confusing patterns
-- 🎨 **Minimalistic UI** - Clean, focused interface optimized for code exploration
+### 🤖 AI Intelligence
+- **Smart Architecture Detection** - Automatically identifies full-stack, microservices, monorepo, MVC, and component-based architectures
+- **Technology Stack Analysis** - Recognizes frameworks, build tools, and development patterns
+- **Onboarding Path Generation** - Creates step-by-step guides with 8 detailed phases
+- **Rule-Based Fallback** - Works even without external LLM APIs using intelligent pattern matching
 
-## What Makes This Different?
+### 💬 Interactive Features
+- **Conversational AI Assistant** - Chat with an AI that understands your repository context
+- **Suggested Questions** - Quick-start questions to explore common aspects
+- **Real-Time Responses** - Fast, context-aware answers about code structure and implementation
+
+### 🎨 Modern UI/UX
+- **Beautiful Gradients** - Professional purple-to-pink gradient theme
+- **Responsive Design** - Works seamlessly on desktop and mobile
+- **Clean Typography** - Inter font for UI, JetBrains Mono for code
+- **Smooth Animations** - Polished interactions and transitions
+
+## 🚀 What Makes This Different?
 
 Unlike traditional code documentation tools, CodeMap:
 
-- **Understands Context**: Uses AI to understand not just what the code does, but *why* decisions were made
-- **Interactive Learning**: Remembers what you've learned and adapts explanations
-- **Vibe Coding Ready**: Walks you through the codebase interactively, perfect for getting into the flow
-- **Visual First**: Generates diagrams and animations to visualize architecture and data flow
-- **Model Agnostic**: Choose the AI model that works best for your needs and budget
+- **Zero Auth Required** - Analyze public repositories instantly without GitHub login
+- **Context-Aware Chat** - Ask questions and get answers specific to the codebase
+- **Intelligent Fallbacks** - Works with or without external AI APIs
+- **Visual First** - Beautiful, modern interface that makes exploration enjoyable
+- **Comprehensive Analysis** - Goes beyond basic stats to understand architecture and patterns
 
-## Quick Start
+## 🎯 Quick Start
 
-See the [Setup Guide](SETUP_GUIDE.md) for detailed instructions.
-
-**TL;DR:**
+### Development Setup (Recommended)
 
 ```bash
 # 1. Install dependencies
 npm install
 
-# 2. Configure environment
-cp apps/backend/.env.example apps/backend/.env
-# Edit .env with your GitHub OAuth and OpenRouter API keys
-
-# 3. Start services
-npm run docker:up
-npm run migrate
-
-# 4. Run dev servers
-cd apps/backend && npm run dev   # Terminal 1
-cd apps/frontend && npm run dev  # Terminal 2
-
-# 5. Open http://localhost:3000
-```
-
-## How It Works
-
-1. **Connect Repository**: Link your GitHub account or paste a public repo URL
-2. **Select Model**: Choose from Claude 3.5 Sonnet, GPT-4o, Llama, and more
-3. **Analyze**: AI examines code structure, patterns, git history, and architecture
-4. **Explore Results**: Interactive interface showing:
-   - Architecture overview and patterns
-   - Feature locations and descriptions
-   - Data flow diagrams
-   - Onboarding guide with steps
-   - Confusion points and clarifications
-   - Recommendations for improvement
-5. **Optional Animation**: Generate visual walkthroughs using Modal
-
-## Use Cases
-
-- 🆕 **New Team Members**: Get up to speed on unfamiliar codebases quickly
-- 🔍 **Code Review**: Understand PRs in projects you don't know well
-- 📖 **Documentation**: Auto-generate onboarding docs from code analysis
-- 🎓 **Learning**: Study open-source projects with AI guidance
-- 🏗️ **Architecture Review**: Visualize and understand system design decisions
-- 🔄 **Migration Planning**: Understand legacy code before refactoring
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd codebase-onboarding-agent
-
-# Copy environment file
-cp .env.example .env
-
-# Install dependencies
-npm install
-
-# Start infrastructure services
-npm run docker:dev
-
-# Wait a few seconds, then run migrations
-npm run migrate
-```
-
-### 3. Start Development
-
-**Option A: Run apps locally (Recommended for development)**
-
-```bash
-# Infrastructure is already running from setup
-# Start backend
+# 2. Configure environment (minimal setup)
 cd apps/backend
+cp .env.example .env
+# Add your API keys (optional - works without them using fallbacks):
+# - OPENROUTER_API_KEY (for advanced AI analysis)
+# - GITHUB_CLIENT_ID & GITHUB_CLIENT_SECRET (for private repos)
+
+# 3. Start both servers (from root directory)
 npm run dev
-
-# In another terminal, start frontend
-cd apps/frontend
-npm run dev
 ```
 
-**Option B: Run everything in Docker**
+The application will start:
+- **Backend**: http://localhost:3001
+- **Frontend**: http://localhost:5173
 
-```bash
-# Start all services (infrastructure + application)
-npm run docker:up
+### Quick Test
 
-# View logs
-npm run docker:logs
+1. Open http://localhost:5173
+2. Enter any public GitHub repository URL (e.g., `https://github.com/facebook/react`)
+3. Click "Analyze Repository"
+4. View comprehensive analysis and chat with the AI about the codebase!
 
-# Stop services
-npm run docker:down
+### Environment Variables
+
+**Required:**
+- None! The app works out of the box with in-memory storage and rule-based AI.
+
+**Optional (for enhanced features):**
+- `OPENROUTER_API_KEY` - Enables advanced AI analysis with Claude, GPT-4, etc.
+- `GITHUB_CLIENT_ID` & `GITHUB_CLIENT_SECRET` - For analyzing private repositories
+- `GITHUB_TOKEN` - Personal access token for higher API rate limits
+
+**Development:**
+- `REDIS_DISABLED=true` - Uses in-memory storage (default for local dev)
+- `PORT=3001` - Backend server port (default)
+
+## 🔧 How It Works
+
+### 1. Repository Analysis
+Paste any public GitHub repository URL. The system:
+- Fetches repository metadata and file structure
+- Analyzes code patterns and architecture
+- Identifies technologies, frameworks, and build tools
+- Generates comprehensive statistics
+
+### 2. AI Processing
+The analysis engine:
+- **With API Keys**: Routes to advanced LLMs (Claude, GPT-4, Llama via OpenRouter)
+- **Without API Keys**: Uses intelligent rule-based analysis
+- Detects architecture patterns (microservices, monorepo, MVC, etc.)
+- Identifies tech stack and provides detailed insights
+
+### 3. Interactive Exploration
+- **Visual Dashboard**: View stats, architecture, and project structure
+- **AI Chat Interface**: Ask questions like:
+  - "What's the main purpose of this project?"
+  - "How do I set up the development environment?"
+  - "Where is the authentication logic?"
+  - "What testing frameworks are used?"
+- **Suggested Questions**: Quick-start prompts for common queries
+- **8-Step Onboarding Path**: From reading docs to making your first contribution
+
+## 💡 Use Cases
+
+- 🆕 **Onboard to Open Source**: Understand any public repository instantly
+- 🎓 **Learn by Exploration**: Study popular projects with AI guidance
+- � **Pre-Interview Research**: Understand a company's tech stack before interviews
+- 📊 **Technology Research**: Compare architectures and patterns across projects
+- 🏗️ **Architecture Study**: Learn design patterns from real-world code
+- 📖 **Documentation Alternative**: Get answers without reading through docs
+- 🤝 **Contribution Planning**: Understand where and how to contribute
+
+## 🏗️ Architecture
+
+### Technology Stack
+
+**Frontend:**
+- React 19 with TypeScript
+- Vite (development server)
+- Modern CSS with gradient themes
+- Responsive design
+
+**Backend:**
+- Node.js with Express
+- TypeScript
+- In-memory storage (Map-based caching)
+- GitHub REST API integration
+- OpenRouter API for LLM routing (optional)
+
+**AI/Analysis:**
+- Intelligent rule-based analysis (no API required)
+- Optional LLM integration via OpenRouter (Claude, GPT-4, Llama)
+- Architecture pattern detection
+- Technology stack identification
+
+### Key Features
+
+✅ **Zero Dependencies** - Works without Redis, external databases, or mandatory API keys  
+✅ **Fast Setup** - Just `npm install && npm run dev`  
+✅ **Smart Fallbacks** - Gracefully degrades when external services unavailable  
+✅ **Port Management** - Backend on 3001, Frontend on 5173 (no conflicts)  
+✅ **Clean Code** - TypeScript throughout, modern patterns
+
+## 📁 Access the Application
+
+**Local Development:**
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:3001
+- **Health Check**: http://localhost:3001/health
+
+**API Endpoints:**
+- `POST /api/github-integration/analyze-public` - Analyze public repository
+- `POST /api/chat/ask` - Chat with AI about repository (coming soon)
+- `GET /health` - Health check endpoint
+
+## 📁 Project Structure
+
 ```
-
-### 4. Access the Application
-
-When running locally:
-- **Frontend**: http://localhost:5173 (Vite dev server)
-- **Backend API**: http://localhost:3000
-- **API Health**: http://localhost:3000/health
-
-When running in Docker:
-- **Frontend**: http://localhost
-- **Backend API**: http://localhost:3000
-- **API Health**: http://localhost:3000/health
-
-Always available:
-- **MinIO Console**: http://localhost:9001 (login: minioadmin/minioadmin)
-- **PostgreSQL**: localhost:5432
-- **Redis**: localhost:6379
-
-## Project Structure
-
-```
-codebase-onboarding-agent/
+nova-hackathon/
 ├── apps/
-│   ├── backend/          # Express.js API server
+│   ├── backend/                    # Express.js API server
 │   │   ├── src/
-│   │   │   ├── routes/   # API routes
-│   │   │   ├── services/ # Business logic
-│   │   │   ├── db/       # Database and migrations
-│   │   │   └── cache/    # Redis caching
-│   │   └── Dockerfile
-│   └── frontend/         # React frontend
+│   │   │   ├── routes/            # API endpoints
+│   │   │   │   └── github-integration.routes.ts  # Public repo analysis
+│   │   │   ├── services/          # Business logic
+│   │   │   │   └── github.service.ts  # GitHub API & AI analysis
+│   │   │   ├── middleware/        # Auth, CORS, etc.
+│   │   │   └── index.ts          # Server entry point
+│   │   ├── .env                   # Environment configuration
+│   │   └── package.json
+│   │
+│   └── frontend/                  # React + Vite frontend
 │       ├── src/
-│       └── Dockerfile
+│       │   ├── components/
+│       │   │   ├── PublicAnalysisView.tsx     # Analysis dashboard
+│       │   │   └── PublicAnalysisView.css     # Styling
+│       │   ├── App.tsx           # Main app component
+│       │   └── main.tsx          # Entry point
+│       ├── vite.config.ts        # Vite configuration
+│       └── package.json
+│
 ├── packages/
-│   └── shared/           # Shared types and utilities
-├── infrastructure/
+│   └── shared/                    # Shared TypeScript types
+│
+├── infrastructure/                # Terraform configs (optional)
+│
+├── package.json                   # Root workspace config
+└── README.md                      # You are here!
 │   └── terraform/        # AWS infrastructure (optional)
 ├── .github/
 │   └── workflows/        # CI/CD pipelines (optional)
 ├── docker-compose.yml    # Full stack deployment
-├── docker-compose.dev.yml # Development infrastructure only
-└── LOCAL_SETUP.md        # Detailed local setup guide
 ```
 
-## Development
+## 🛠️ Development
 
 ### Available Scripts
 
 ```bash
-# Development
-npm run dev              # Start all apps in development mode
-npm run docker:dev       # Start infrastructure only
-npm run docker:up        # Start full stack in Docker
+# Start development servers (both frontend and backend)
+npm run dev
 
-# Building
-npm run build            # Build all apps
-npm run docker:build     # Build Docker images
-npm run docker:rebuild   # Rebuild and restart containers
+# Individual apps
+cd apps/backend && npm run dev    # Backend only
+cd apps/frontend && npm run dev   # Frontend only
 
-# Testing
-npm test                 # Run all tests
-npm run lint             # Lint code
-npm run format           # Format code
+# Build for production
+npm run build
 
-# Database
-npm run migrate          # Run database migrations
-
-# Cleanup
-npm run docker:down      # Stop containers
-npm run docker:clean     # Stop and remove volumes
+# Run tests (when available)
+npm test
 ```
 
-### Environment Variables
+### Development Workflow
 
-Copy `.env.example` to `.env` and configure:
+1. Make changes to code
+2. Vite (frontend) and tsx (backend) watch for changes and reload automatically
+3. Test in browser at http://localhost:5173
+4. Backend logs appear in terminal for debugging
 
-```bash
-# Required for basic functionality
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/onboarding_agent
-REDIS_URL=redis://localhost:6379
-S3_ENDPOINT=http://localhost:9000
-JWT_SECRET=your-secret-key
+### Adding New Features
 
-# Optional - for full features
-AIRIA_API_KEY=your-airia-key
-GITHUB_CLIENT_ID=your-github-client-id
-GITHUB_CLIENT_SECRET=your-github-client-secret
-RETELL_API_KEY=your-retell-key
-OPENROUTER_API_KEY=your-openrouter-key
-MODAL_TOKEN_ID=your-modal-token-id
-MODAL_TOKEN_SECRET=your-modal-token-secret
-```
+**Backend API Endpoint:**
+1. Add route in `apps/backend/src/routes/`
+2. Implement logic in `apps/backend/src/services/`
+3. Test with curl or Postman
 
-## Architecture
+**Frontend Component:**
+1. Create component in `apps/frontend/src/components/`
+2. Add styles in corresponding `.css` file
+3. Import and use in `App.tsx` or other components
 
-### Technology Stack
-
-**Backend**:
-- Node.js + Express.js
-- PostgreSQL (database)
-- Redis (caching)
-- MinIO (S3-compatible storage)
-
-**Frontend**:
-- React 18
-- React Router
-- Axios
-
-**Infrastructure**:
-- Docker & Docker Compose
-- Nginx (reverse proxy)
-- Terraform (optional, for AWS deployment)
-
-**External Services**:
-- Airia (LLM governance and routing)
-- Retell AI (voice interactions)
-- OpenRouter (LLM access)
-- Modal (diagram generation)
-- GitHub OAuth (authentication)
-
-### Key Components
-
-1. **Analysis Orchestrator** - Coordinates repository analysis workflows
-2. **Session Manager** - Manages onboarding sessions and state
-3. **Artifact Manager** - Handles sanitized artifacts and storage
-4. **Voice Integration** - Retell AI voice interaction layer
-5. **Diagram Generator** - Modal-based architecture visualization
-6. **Policy Engine** - Airia governance and cost management
+**Shared Types:**
+1. Add types to `packages/shared/src/types/`
+2. Export from `packages/shared/src/index.ts`
+3. Import in frontend or backend as needed
 
 ## Testing
 
@@ -315,58 +309,116 @@ npm run docker:up
 
 See [LOCAL_SETUP.md](LOCAL_SETUP.md) for more troubleshooting tips.
 
-## Contributing
+## 🐛 Troubleshooting
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Port Already in Use
 
-### Code Quality
+```powershell
+# Check which process is using ports
+netstat -ano | findstr "3001 5173"
 
-```bash
-# Before committing
-npm run lint          # Check for linting errors
-npm run format        # Format code
-npm test             # Run tests
-npm run build        # Ensure builds succeed
+# Kill process by PID (replace <PID> with actual number)
+taskkill /PID <PID> /F
 ```
 
-## Security
+### Frontend Not Connecting to Backend
 
-- All data encrypted at rest and in transit
-- Multi-tenant isolation at database and application level
-- RBAC with least-privilege access
-- Sanitized artifacts (no raw code in long-term storage)
-- Configurable data retention policies
-- SSO/OIDC authentication with optional MFA
+1. Ensure backend is running on port 3001
+2. Check frontend `vite.config.ts` has proxy configured
+3. Verify no CORS errors in browser console
 
-## License
+### API Requests Failing
 
-[Your License Here]
+1. Check backend logs for errors
+2. Verify GitHub API rate limits (60 requests/hour without auth)
+3. Test endpoint directly: `curl http://localhost:3001/health`
 
-## Support
+### Module Not Found Errors
 
-For issues and questions:
-- Check [LOCAL_SETUP.md](LOCAL_SETUP.md) for local development
-- Check [DEPLOYMENT.md](DEPLOYMENT.md) for production deployment
-- Review logs: `npm run docker:logs`
-- Open an issue on GitHub
+```bash
+# Reinstall dependencies
+npm install
 
-## Roadmap
+# Clear npm cache if needed
+npm cache clean --force
+npm install
+```
 
-- [ ] Enhanced voice interaction features
-- [ ] Additional diagram types
-- [ ] Plugin system for custom analyzers
-- [ ] Mobile app support
-- [ ] Real-time collaboration features
-- [ ] Advanced analytics dashboard
+### GitHub API Rate Limit
 
-## Acknowledgments
+Without authentication, GitHub limits to 60 requests/hour. To increase:
 
-Built with:
-- [Airia](https://airia.com) - LLM governance
-- [Retell AI](https://retell.ai) - Voice interactions
-- [OpenRouter](https://openrouter.ai) - LLM access
-- [Modal](https://modal.com) - Serverless compute
+1. Create a GitHub Personal Access Token
+2. Add to `.env`: `GITHUB_TOKEN=your_token_here`
+3. Restart backend server
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how to get started:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Test thoroughly
+5. Commit: `git commit -m 'Add amazing feature'`
+6. Push: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+### Development Guidelines
+
+- Write clean, readable TypeScript
+- Follow existing code style and patterns
+- Add comments for complex logic
+- Test your changes thoroughly
+- Update documentation if needed
+
+## 🚀 Roadmap
+
+**Current Features:**
+- ✅ Public repository analysis
+- ✅ AI-powered insights
+- ✅ Interactive chat interface
+- ✅ Real-time GitHub stats
+- ✅ Architecture detection
+- ✅ Technology stack analysis
+
+**Coming Soon:**
+- 🔄 Backend chat API integration
+- 🔄 Chat history persistence
+- 🔄 Private repository support
+- 🔄 Multi-language AI responses
+- 🔄 Code search within repositories
+- 🔄 Comparison mode (compare 2+ repos)
+- 🔄 Export analysis reports
+
+**Future Ideas:**
+- 📋 Visual architecture diagrams
+- 📊 Trend analysis over time
+- 🎯 Contribution recommendations
+- 🔔 Repository monitoring
+- 🤖 Advanced AI models integration
+
+## 📄 License
+
+MIT License - feel free to use this project for any purpose!
+
+## 💬 Support
+
+Need help?
+- 📖 Check the documentation files in the repo
+- 🐛 Open an issue on GitHub
+- 💡 Suggest features via GitHub Discussions
+
+## 🙏 Acknowledgments
+
+Built with amazing open-source tools:
+- **React** - UI framework
+- **Vite** - Build tool and dev server
+- **Express** - Backend framework
+- **TypeScript** - Type safety
+- **GitHub API** - Repository data
+- **OpenRouter** - Optional LLM routing
+
+---
+
+**Made with ❤️ for developers who love exploring code**
