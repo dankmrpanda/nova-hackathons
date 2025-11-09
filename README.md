@@ -33,7 +33,7 @@ Unlike traditional code documentation tools, CodeMap:
 
 - **Zero Auth Required** - Analyze public repositories instantly without GitHub login
 - **Intelligent Fallbacks** - Works with or without external AI APIs
-- If you use the CLI, you can use private repositories as well, and it creates a comprehensive summary without the use of AI
+- If you use the CLI, you can run locally and use private repositories as well, and it creates a comprehensive summary without the use of AI
 - **Comprehensive Analysis** - Goes beyond basic stats to understand architecture and patterns
 
 ## 🎯 Quick Start
