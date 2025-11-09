@@ -32,9 +32,8 @@ An intelligent system that helps developers understand and onboard to new codeba
 Unlike traditional code documentation tools, CodeMap:
 
 - **Zero Auth Required** - Analyze public repositories instantly without GitHub login
-- **Context-Aware Chat** - Ask questions and get answers specific to the codebase
 - **Intelligent Fallbacks** - Works with or without external AI APIs
-- **Visual First** - Beautiful, modern interface that makes exploration enjoyable
+- If you use the CLI, you can use private repositories as well, and it creates a comprehensive summary without the use of AI
 - **Comprehensive Analysis** - Goes beyond basic stats to understand architecture and patterns
 
 ## 🎯 Quick Start
